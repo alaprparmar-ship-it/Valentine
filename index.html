@@ -36,10 +36,10 @@
 
     <div id="card">
         <div class="img-box">
-            <img id="mainImg" src="https://i.postimg.cc/q7hdBHBg/Whats-App-Image-2026-02-13-at-16-42-55.jpg" alt="The Question">
+            <img id="mainImg" src="https://files.catbox.moe/6v0m0h.jpg" alt="The Question">
         </div>
         
-        <h1 id="text">Will you be my Valentine, <br>Miss Cutie Pie? 💖</h1>
+        <h1 id="text">Will you be my valentine cutie? 💖</h1>
         
         <div class="btn-container">
             <button id="yesBtn">YES!</button>
@@ -53,15 +53,12 @@
         const card = document.getElementById('card');
         let scale = 1;
 
-        // Runaway button logic
         function moveButton() {
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
             noBtn.style.position = 'fixed';
             noBtn.style.left = x + 'px';
             noBtn.style.top = y + 'px';
-            
-            // YES button gets bigger with every "No" attempt
             scale += 0.5;
             yesBtn.style.transform = `scale(${scale})`;
         }
@@ -69,17 +66,15 @@
         noBtn.addEventListener('mouseover', moveButton);
         noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); moveButton(); });
 
-        // Success State
         yesBtn.addEventListener('click', () => {
             card.innerHTML = `
                 <div class="img-box">
-                    <img src="https://i.postimg.cc/D0c9p26Z/Whats-App-Image-2026-02-13-at-16-40-04.jpg" style="width:100%; height:100%; object-fit:cover;">
+                    <img src="https://files.catbox.moe/8m8piv.jpg" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h1 style="color: #ff4d6d; font-size: 1.4rem; padding-top: 15px;">
                     Finally! 🎉<br>I was starting to run out of room for that "Yes" button! ✨
                 </h1>
             `;
-            // Trigger rapid floating hearts
             setInterval(createHeart, 100);
         });
 
@@ -93,8 +88,6 @@
             document.body.appendChild(heart);
             setTimeout(() => heart.remove(), 4000);
         }
-        
-        // Background slow sparkles
         setInterval(createHeart, 600);
     </script>
 </body>
